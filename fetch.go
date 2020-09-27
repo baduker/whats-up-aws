@@ -47,6 +47,6 @@ func fetch(url string) []byte {
 	return body
 }
 
-func FetchData() []byte {
+func fetchData() []byte {
 	return fetch(buildURL(25, 0))
 }
