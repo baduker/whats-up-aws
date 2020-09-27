@@ -34,5 +34,6 @@ func show(news AWSNewsData, wrap int) {
 }
 
 func ShowNews() {
-	show(parseNews(), 80)
+	news := parseNews()
+	show(news, 80)
 }
