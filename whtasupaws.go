@@ -23,7 +23,7 @@ func parseNews() AWSNewsData {
 	return news
 }
 
-func ShowNews(news AWSNewsData, wrap int) {
+func show(news AWSNewsData, wrap int) {
 	today := time.Now().Format("01-02-2006")
 
 	for index, i := range news.Items {
@@ -38,4 +38,8 @@ func ShowNews(news AWSNewsData, wrap int) {
 			fmt.Println("There are no news for today.")
 		}
 	}
+}
+
+func ShowNews() {
+	show(parseNews(), 80)
 }
