@@ -11,7 +11,7 @@ func removeHTMLTags(item string) string {
 	return p.Sanitize(item)
 }
 
-func parseNews() AWSNewsData {
+func ParseNews() AWSNewsData {
 	news := AWSNewsData{}
 	err := json.Unmarshal(fetchData(), &news)
 
@@ -22,7 +22,7 @@ func parseNews() AWSNewsData {
 	return news
 }
 
-func show(news AWSNewsData, wrap int) {
+func Show(news AWSNewsData, wrap int) {
 	for index, i := range news.Items {
 		date := i.Item.AdditionalFields.PostDateTime.Format("01-02-2006")
 		headline := i.Item.AdditionalFields.Headline
@@ -31,9 +31,4 @@ func show(news AWSNewsData, wrap int) {
 		fmt.Printf("%d. %s\nPublished: %s\n%s\n\n", index+1, headline, date, link)
 		fmt.Printf("%s\n\n", postBody)
 	}
-}
-
-func ShowNews() {
-	news := parseNews()
-	show(news, 80)
 }
